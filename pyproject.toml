@@ -1,0 +1,32 @@
+[project]
+dependencies = []
+name = "ETL-GIS-Files"
+requires-python = ">= 3.11"
+version = "1.0.0"
+
+[project.scripts]
+etl_gis_files = "etl_gis_files.main:main"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+etl_gis_files = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+gdal = ">=3.11.0,<4"
+libgdal-core = ">=3.11.0,<4"
+libgdal-arrow-parquet = ">=3.11.0,<4"
+libgdal-pg = ">=3.11.0,<4"
+postgresql = ">=17.5,<18"
+dynaconf = ">=3.2.11,<4"
+pydantic = ">=2.11.7,<3"
+loguru = ">=0.7.3,<0.8"
+pytz = ">=2025.2,<2026"

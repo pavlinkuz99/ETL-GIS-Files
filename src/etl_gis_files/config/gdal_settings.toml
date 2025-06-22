@@ -1,0 +1,16 @@
+[default.gdal_settings.algs.vector_clip]
+overwrite = true
+overwrite-layer = true
+#like = "app_data/input/boundaries/mr.json"
+
+[default.gdal_settings.algs.vector_convert]
+overwrite = true
+overwrite-layer = true
+
+[default.gdal_settings.algs.vector_concat]
+mode = "single"
+overwrite = true
+overwrite-layer = true
+dst-crs = "EPSG:3857"
+[default.gdal_settings.algs.vector_concat.layer-creation-option]
+GEOMETRY_NAME = "geometry"

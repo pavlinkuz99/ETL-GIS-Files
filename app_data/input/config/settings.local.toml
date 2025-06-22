@@ -1,0 +1,6 @@
+[default.settings]
+cpu_cores_frac = 0.6
+
+
+[default.settings.dirs_files]
+file_layers_name_patterns = ["*.tab"]

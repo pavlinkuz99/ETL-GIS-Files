@@ -1,0 +1,14 @@
+[default.settings]
+tz = "Europe/Moscow"
+cpu_cores_frac = 0.5
+db_exec_base_command = "psql"
+db_dump_base_command = "pg_dump --quote-all-identifiers -v -F d -Z 9"
+db_restore_base_command = "pg_restore -v -F d"
+
+
+[default.settings.dirs_files]
+schemas_path = "app_data/input/schemas"
+schemas_converted_path = "app_data/input/schemas_converted"
+unary_format_for_converted_layers = ".parquet"
+file_layers_name_patterns = ["*.parquet", "*.shp", "*.gpkg", "*.geojson", "*.json"]
+output_path = "app_data/output"

@@ -1,0 +1,19 @@
+.git
+.idea
+.ruff_cache
+__pycache__/
+*.pyc
+.env
+.gitattributes
+.gitignore
+docker-compose.yml
+Dockerfile
+app_data/input/config
+app_data/input/schemas
+app_data/input/schemas_converted
+app_data/output
+!**/*.md
+
+# pixi environments
+.pixi
+*.egg-info

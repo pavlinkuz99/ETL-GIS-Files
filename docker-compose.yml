@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgis/postgis:14-3.1
+    container_name: postgis_db
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - etl_gis_files_pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    image: etl_gis_files:1.0.0
+    container_name: app
+    environment:
+      - ENV_FOR_DYNACONF=default,docker
+    env_file:
+      - .env
+    volumes:
+      - ./app_data/input/config:/app/app_data/input/config
+      - ./app_data/input/schemas:/app/app_data/input/schemas
+      - ./app_data/input/schemas_converted:/app/app_data/input/schemas_converted
+      - ./app_data/output:/app/app_data/output
+    command: sh -c "sleep 7 && etl_gis_files"
+    depends_on:
+      db:
+        condition: service_started
+
+volumes:
+  etl_gis_files_pgdata:
